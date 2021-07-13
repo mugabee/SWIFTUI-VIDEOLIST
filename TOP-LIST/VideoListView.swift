@@ -19,6 +19,7 @@ struct VideoListView: View {
                     .scaledToFit()
                     .frame(height: 70)
                     .cornerRadius(4)
+                    .padding(.vertical, 4)
                 
                 VStack(alignment: .leading, spacing: 5) {
                     
