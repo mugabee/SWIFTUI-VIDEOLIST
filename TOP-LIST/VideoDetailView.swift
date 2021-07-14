@@ -11,7 +11,9 @@ struct VideoDetailView: View {
     var video: Video
     var body: some View {
         VStack(spacing: 20) {
+            
             Spacer()
+            
             Image(video.imageName)
                 .resizable()
                 .scaledToFit()

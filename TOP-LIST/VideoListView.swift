@@ -14,24 +14,29 @@ struct VideoListView: View {
     var body: some View {
         NavigationView{
             List(videos, id: \.id) { video in
-                Image(video.imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 70)
-                    .cornerRadius(4)
-                    .padding(.vertical, 4)
+                NavigationLink(destination: VideoDetailView(video: video),
+                    label: {
+                        Image(video.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 70)
+                            .cornerRadius(4)
+                            .padding(.vertical, 4)
+                        
+                        VStack(alignment: .leading, spacing: 5) {
+                            
+                            Text(video.title)
+                                .fontWeight(.semibold)
+                                .lineLimit(12)
+                                .minimumScaleFactor(0.5)
+                            
+                            Text(video.uploadDate)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                    })
                 
-                VStack(alignment: .leading, spacing: 5) {
-                    
-                    Text(video.title)
-                        .fontWeight(.semibold)
-                        .lineLimit(12)
-                        .minimumScaleFactor(0.5)
-                    
-                    Text(video.uploadDate)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
+                
             }
             .navigationTitle("YouTube Tutorials")
         }
