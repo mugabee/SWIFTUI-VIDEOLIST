@@ -33,7 +33,7 @@ struct VideoListView: View {
                         .foregroundColor(.secondary)
                 }
             }
-            .navigationTitle("Sean's Top 10")
+            .navigationTitle("YouTube Tutorials")
         }
     }
 }

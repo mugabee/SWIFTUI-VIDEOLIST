@@ -21,15 +21,34 @@ struct VideoDetailView: View {
                 .fontWeight(.semibold)
                 .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                 .multilineTextAlignment(.center)
-                .padding()
+                .padding(.horizontal)
             
-            HStack{
-                Text("eye")
+            HStack(spacing: 40){
+                Label("\(video.viewCount)", systemImage: "eye.fill")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Text(video.uploadDate)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            Text(video.description)
+                .font(.body)
+                .padding()
+            Link(destination: video.url, label: {
+                Text("Watch Now")
+                    .bold()
+                    .font(.title2)
+                    .frame(width: 280, height: 50)
+                    .background(Color(.systemRed))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                
+            })
             }
             
         }
     }
-}
+
 
 struct VideoDetailView_Previews: PreviewProvider {
     static var previews: some View {
