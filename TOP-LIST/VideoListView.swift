@@ -16,24 +16,7 @@ struct VideoListView: View {
             List(videos, id: \.id) { video in
                 NavigationLink(destination: VideoDetailView(video: video),
                     label: {
-                        Image(video.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 70)
-                            .cornerRadius(4)
-                            .padding(.vertical, 4)
-                        
-                        VStack(alignment: .leading, spacing: 5) {
-                            
-                            Text(video.title)
-                                .fontWeight(.semibold)
-                                .lineLimit(12)
-                                .minimumScaleFactor(0.5)
-                            
-                            Text(video.uploadDate)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
+                        VideoCell(video: video)
                     })
                 
                 
@@ -42,7 +25,34 @@ struct VideoListView: View {
         }
     }
 }
-
+struct VideoCell: View {
+    var video: Video
+    
+    var body: some View {
+        HStack{
+            Image(video.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 70)
+                .cornerRadius(4)
+                .padding(.vertical, 4)
+            
+            VStack(alignment: .leading, spacing: 5) {
+                
+                Text(video.title)
+                    .fontWeight(.semibold)
+                    .lineLimit(12)
+                    .minimumScaleFactor(0.5)
+                
+                Text(video.uploadDate)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            
+        }
+        
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
