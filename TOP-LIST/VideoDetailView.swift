@@ -10,7 +10,8 @@ import SwiftUI
 struct VideoDetailView: View {
     var video: Video
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
+            Spacer()
             Image(video.imageName)
                 .resizable()
                 .scaledToFit()
@@ -34,6 +35,9 @@ struct VideoDetailView: View {
             Text(video.description)
                 .font(.body)
                 .padding()
+            
+            Spacer()
+            
             Link(destination: video.url, label: {
                 Text("Watch Now")
                     .bold()
@@ -44,10 +48,10 @@ struct VideoDetailView: View {
                     .cornerRadius(10)
                 
             })
-            }
-            
         }
+        
     }
+}
 
 
 struct VideoDetailView_Previews: PreviewProvider {
